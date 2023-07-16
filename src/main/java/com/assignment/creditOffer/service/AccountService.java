@@ -9,5 +9,6 @@ public interface AccountService {
     long addAccount(AccountDetail accountDetail);
 
      List<AccountDetail> fetchAllAccounts();
+     AccountDetail fetchAccountDetail(Long id);
 
 }
