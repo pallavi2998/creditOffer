@@ -29,24 +29,26 @@ public class OfferController {
     private AccountRepository accountRepository;
 
 
+    //get all offers
     @GetMapping("/offers")
     public List<LimitOffer> getAllOffers(){
         return offerService.fetchAllOffers();
     }
 
+    //get all active offers for an account and given date
     @GetMapping("/activeOffers")
     public List<LimitOffer> getActiveOffers(@RequestParam(value="accountID") Long accountID,
                                             @RequestParam("activeDate") @DateTimeFormat(pattern="yyyy-MM-dd") Date activeDate){
         return offerService.fetchActiveOffers(accountID,activeDate);
     }
 
-    //create offer
+    //create new offer
     @PostMapping("/createOffer")
     public ResponseEntity<LimitOffer> createOffer(@RequestBody LimitOffer offer){
        return offerService.addOffer(offer);
     }
 
-    // build update employee REST API
+    // update status of offer when accepted or rejected
     @PutMapping("/update/{id}")
     public ResponseEntity<LimitOffer> updateOffer(@PathVariable Long id,
             @RequestParam(value="offerStatus") OfferStatus status) {

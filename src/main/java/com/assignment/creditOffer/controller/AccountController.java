@@ -20,7 +20,7 @@ public class AccountController {
     private AccountService accountService;
 
 
-
+   //Get all accounts
     @GetMapping("/accounts")
     public List<AccountDetail> getAllAccount(){
         return accountService.fetchAllAccounts();
@@ -33,6 +33,7 @@ public class AccountController {
         return accountService.addAccount(accountDetail);
     }
 
+    //Get account by id
     @GetMapping("/account/{id}")
     public ResponseEntity<AccountDetail> getAccountById(@PathVariable Long id){
         AccountDetail detail= accountService.fetchAccountDetail(id);

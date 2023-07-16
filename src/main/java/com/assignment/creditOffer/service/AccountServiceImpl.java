@@ -17,9 +17,6 @@ public class AccountServiceImpl implements AccountService{
     @Autowired
     private AccountRepository accountRepository;
 
-    @Autowired
-    private OfferRepository offerRepository;
-
     @Override
     public long addAccount(AccountDetail accountDetail){
         accountRepository.save(accountDetail);
